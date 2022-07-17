@@ -13,8 +13,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      DOCKER_REPOSITORY: ${{}}
-      IMAGE_NAME: ${{}}
+      DOCKER_REPOSITORY: ${{ secrets.DOCKER_REPOSITORY }}
+      IMAGE_NAME: terraform_node
       IMAGE_TAG: ${{ github.run_number }}
   
     steps:
