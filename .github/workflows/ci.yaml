@@ -1,0 +1,32 @@
+name: Test Deploy to AWS using terrafom
+
+on: 
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: none
+  
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    env:
+      DOCKER_REPOSITORY: ${{}}
+      IMAGE_NAME: ${{}}
+      IMAGE_TAG: ${{ github.run_number }}
+  
+  steps:
+
+  - name : Git Checkout 
+    uses: actions/checkout@v3
+
+  - name: Setup Node
+    uses: actions/setup-node@v3
+    with:
+      node-version: 16
+      cache: 'npm'
+    run: npm ci
+
+     
